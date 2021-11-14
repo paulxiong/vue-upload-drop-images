@@ -87,10 +87,14 @@ export default {
       if (!this.files.length) return;
       for (let i = 0; i < this.files.length; i++) {
         readers.push(this.readAsDataURL(this.files[i]));
+        console.log("boostx debug: files["+i+"]="+this.files[i].name);
+        console.log(JSON.stringify(this.readAsDataURL(this.files[i])));
       }
+      console.log("boostx debug: readers = "+readers);
       Promise.all(readers).then((values) => {
         this.Imgs = values;
       });
+      console.log("boostx debug: Imgs = "+this.Imgs);
     },
     reset() {
       this.$refs.uploadInput.value = null;
