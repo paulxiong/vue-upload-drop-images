@@ -14,6 +14,11 @@ export default {
     name: 'B_export',
     props: {
         msg: String
+    },
+    methods: {
+        method1() {
+            alert('method1')
+        }
     }
 }
 </script>
