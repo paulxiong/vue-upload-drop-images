@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <button @click="A_method1">Click A_method</button>
-  <B_import ref="B" />
+  <B_import ref="B" msg = "boostx msg" />
 </template>
 
 <script>
