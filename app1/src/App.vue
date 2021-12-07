@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <button @click="A_method1">Click A_method</button>
-  <B_import ref="B" msg = "boostx msg" />
+  <button @click="A_method1"  >Click A_method</button>
+  <B_import ref="B" :msg_inB='boostx_msg' @boost_vclick="boost_vclick_inA" />
 </template>
 
 <script>
@@ -12,9 +12,20 @@ export default {
   components: {
     B_import
   },
+  data() {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      boostx_msg: '001',
+      msg_inB:'error',
+    }
+  },
   methods: {
     A_method1() {
       this.$refs.B.method1()
+      this.$emit('boost_vclick', "hello")
+    },
+    boost_vclick_inA() {
+      alert('boost_vclick_inA')
     }
   }
 }
