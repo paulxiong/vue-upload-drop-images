@@ -14,15 +14,12 @@ export default {
   },
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      boostx_msg: '001',
-      msg_inB:'error',
+      boostx_msg: '001'
     }
   },
   methods: {
     A_method1() {
       this.$refs.B.method1()
-      this.$emit('boost_vclick', "hello")
     },
     boost_vclick_inA() {
       alert('boost_vclick_inA')
