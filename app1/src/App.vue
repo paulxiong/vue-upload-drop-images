@@ -1,21 +1,22 @@
 <template>
+  <link rel="stylesheet" href="zumly/dist/zumly.css">
+
   <img alt="Vue logo" src="./assets/logo.png">
+  <H1> + Zumly </H1>
   
-  <button @click="A_method1"  >Click A_method</button>
+  <button @click="A_method1"  >Click to enter Zumly World!</button>
   <B_import ref="B" :msg_inB='boostx_msg' @boost_vclick="boost_vclick_inA" />
-
-
-  <div class="example zumly-canvas"></div>
-
+  <B_zumly ref="Z"/>
 </template>
 
 <script>
 import B_import from './components/fileB.vue'
+import B_zumly from './components/zumly.vue'
 
 export default {
   name: 'App',
   components: {
-    B_import
+    B_import, B_zumly
   },
   data() {
     return {
@@ -24,7 +25,8 @@ export default {
   },
   methods: {
     A_method1() {
-      this.$refs.B.method1()
+      // this.$refs.B.method1()
+      this.$refs.Z.method1()
     },
     boost_vclick_inA() {
       alert('boost_vclick_inA')
@@ -42,21 +44,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.world{
-  width: 250px;
-  height: 250px;
-  top: -5px
-}
-.o {
-  border: 3px solid #ffcc00
-}
-.hello {
-  font-size: 4em;
-  text-align: center;
-  font-family: arial;
-  font-weight: bold;
-   width: 400px;
-  height: 200px;
-}
-
 </style>
