@@ -6,7 +6,7 @@
   
   <button @click="A_method1"  >Click to enter Zumly World!</button>
   <B_import ref="B" :msg_inB='boostx_msg' @boost_vclick="boost_vclick_inA" />
-  <B_zumly ref="Z"/>
+  <B_zumly  ref="Z" :msg_inB='boostx_msg' :key='boostx_msg' />
 </template>
 
 <script>
@@ -26,7 +26,14 @@ export default {
   methods: {
     A_method1() {
       // this.$refs.B.method1()
-      this.$refs.Z.method1()
+       this.boostx_msg += '1'
+      this.$nextTick().then(() => {
+        // Add the component back in
+        this.$refs.Z.method1()
+        // this.renderComponent = true;
+      });
+
+
     },
     boost_vclick_inA() {
       alert('boost_vclick_inA')

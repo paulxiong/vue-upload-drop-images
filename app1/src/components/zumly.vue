@@ -11,6 +11,16 @@ export default {
     // components: {
     //     Zumly
     // },
+    props: {
+        msg_inB: {
+            type: String,
+            default: '000'
+        },
+        key:{
+            type: String,
+            default: '000'
+        }
+    },
     data() {
         return {
             app: ''
@@ -18,11 +28,10 @@ export default {
     },
     methods: {
         method1() {
-            alert('In Zumly is ready, Go!')
-            const hello = `
-            <div class="z-view hello">
+            alert('In Zumly is ready, Go!' + this.msg_inB)
+            const hello = '<div class="z-view hello">' +this.msg_inB +`
             H E L L O <br>
-            W <span class="zoom-me o" data-to="hello1">O</span> R L D!
+            W <span class="zoom-me o" data-to="world">O</span> R L D!
             </div>
             `;
             const hello1 = `
@@ -38,8 +47,8 @@ export default {
             <img src="https://raw.githubusercontent.com/zumly/website/gh-pages/images/world.png"/>
             </div>`
                 }
-            }
-
+            };
+            alert("boostx:",world)
             this.app = new Zumly({
                 mount: '.example',
                 initialView: 'hello',
